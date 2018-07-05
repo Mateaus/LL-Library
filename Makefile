@@ -13,10 +13,10 @@ scratch: tidy
 	rm -f *.o *.a $(PROGRAMS)
 
 #change LL.c and LL.o file name to the one you have.
-LL.o: LL.c linkedlist.h
+LL.o: LL.c linkedlist.h files.h
 	$(CC) $(CFLAGS) -g -c LL.c
 
-linkedlist.o: linkedlist.c linkedlist.h files.h
+linkedlist.o: linkedlist.c linkedlist.h
 	$(CC) $(CFLAGS) -g -c linkedlist.c
 
 # creating the executable
