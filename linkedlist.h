@@ -7,10 +7,8 @@
  * properly manipulate a set of data in a linked list.
  */
 
-
 #ifndef _linkedlist_h
 #define _linkedlist_h
-
 
 /*
  * Type: String
@@ -37,8 +35,6 @@ typedef struct Node{
     String Name;
     struct Node *pNext;
 } NodeT, *NodePtrT;
-
-//typedef struct Node NodeT, *NodePtrT;
 
 /*
  * Function: insertFileLL
