@@ -1,3 +1,13 @@
+/*
+ * File: linkedlist.h
+ * -------------
+ * This interface defines an abstraction for linkedlist.
+ * Main purpose is to facilitate students on creating
+ * nodes for a linked list in order to learn how to
+ * properly manipulate a set of data in a linked list.
+ */
+
+
 #ifndef _linkedlist_h
 #define _linkedlist_h
 
