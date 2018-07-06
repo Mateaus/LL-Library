@@ -22,7 +22,7 @@
 typedef char *String;
 
 /*
- * Type; Node
+ * Type: Node
  * -----------
  * The type Node is the concrete representation of the type
  * Node. In this implementation,the data is stored in a Node
@@ -35,6 +35,15 @@ typedef struct Node{
     String Name;
     struct Node *pNext;
 } NodeT, *NodePtrT;
+
+/*
+ * Function: initializeLL
+ * Usage: Node = initializeLL();
+ * -----------------------------
+ * This function initializes the Linked List to NULL.
+ */
+
+NodeT *initializeLL();
 
 /*
  * Function: insertFileLL

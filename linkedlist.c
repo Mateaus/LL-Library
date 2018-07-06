@@ -19,15 +19,17 @@ void insertFileLL(NodeT **pHead, FILE *pFile)
 {
     int iStudentID;
     char *iStudentName;
-    if (pFile == NULL){printf("Error: Missing file\n");exit(0);}
-
+    // initialize *pHead to NULL
+    *pHead = initializeLL();
+    // if pFile is no valid
+    if(pFile == NULL){printf("Error: Missing file\n"); exit(0);}
+    // allocate memory for array iStudentName
     iStudentName = (char *)malloc(sizeof(char) * 100);
     if(iStudentName == NULL){printf("Error: Bad Memory Allocation");exit(0);}
+    // read file and populate LL
     while(fscanf(pFile, "%d %[^\n]", &iStudentID, iStudentName) == 2)
     {
-        // change memory allocation space to current string size;
-        //iStudentName = (char *)realloc(iStudentName, strlen(iStudentName));
-        // insert a LL to pHead
+        // insert a Node to LL
         insertLL(pHead, iStudentID, iStudentName);
     }
 
@@ -41,10 +43,9 @@ void insertLL(NodeT **ppHead, int iID, String Name)
     NodeT *pPrevious = NULL;
     // malloc incoming data
     pNew = allocateNode(iID, Name);
-
     // find pPrevious to keep LL in order
     pPrevious = findPrevious(*ppHead, iID);
-
+    // set nodes in order
     if(pPrevious == NULL){
         pNew->pNext = (*ppHead);
         *ppHead = pNew;           //pHead on main is now pointing to pNew;
@@ -67,6 +68,11 @@ void printLL(NodeT *pHead)
     }
 
     return;
+}
+
+NodeT *initializeLL()
+{
+    return NULL;
 }
 
 void freeLL(NodeT *pHead)
@@ -102,6 +108,7 @@ NodeT *allocateNode(int iID, String Name)
         printf("Error: Bad Memory allocation in pNew\n");
         exit(0);
     }
+
     pNew->Name = (char *) malloc(sizeof(char) * 100);
     if(pNew->Name == NULL){
         printf("Error: Bad Memory allocation in pNew->Name\n");
